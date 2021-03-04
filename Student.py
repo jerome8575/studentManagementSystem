@@ -1,5 +1,4 @@
 class Student:
-
     """Student class, initialize with first name, last name, id number, gpa
     function is print student whic prints all the fields"""
 
@@ -21,14 +20,14 @@ class Student:
         self.printClassSchedule()
 
     def printClassSchedule(self):
-        for i in range(len(self.classSchedule)):
-            print(self.classSchedule[i].printClass())
+        for c in self.classSchedule:
+            c.printClass()
 
     def addClass(self, c):
         self.classSchedule.append(c)
 
-class Students:
 
+class Students:
     """keeps a list of students in alphabetical order by last name
     functions are printList(), addStudent(Student object)"""
 
@@ -40,6 +39,7 @@ class Students:
     def printList(self):
         for i in range(len(self.studentsList)):
             self.studentsList[i].printStudent()
+            print("")
             print("----------------")
 
     def bisect(self, lastName):

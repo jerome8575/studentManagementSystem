@@ -1,25 +1,31 @@
-
 class Student:
 
     """Student class, initialize with first name, last name, id number, gpa
-    function is print student whihc prints all the fields"""
+    function is print student whic prints all the fields"""
 
     firstName = ""
     lastName = ""
-    IdNumber = 0
-    GPA = 0
+    grade = 0
+    classSchedule = []
 
-    def __init__(self, firstName, lastName, idNum, gpa):
+    def __init__(self, firstName, lastName, gr, cl):
         self.firstName = firstName
         self.lastName = lastName
-        self.IdNumber = idNum
-        self.GPA = gpa
+        self.grade = gr
+        self.classSchedule = cl
 
     def printStudent(self):
         print(self.firstName)
         print(self.lastName)
-        print(self.IdNumber)
-        print(self.GPA)
+        print(self.grade)
+        self.printClassSchedule()
+
+    def printClassSchedule(self):
+        for i in range(len(self.classSchedule)):
+            print(self.classSchedule[i].printClass())
+
+    def addClass(self, c):
+        self.classSchedule.append(c)
 
 class Students:
 

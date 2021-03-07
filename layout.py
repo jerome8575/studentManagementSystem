@@ -2,9 +2,9 @@ import PySimpleGUI as sg
 
 # basic layout of the first window
 layoutStudentInfo = [[sg.Text("Add a student")],
-                     [sg.Text("First Name  "), sg.InputText('', size=(10, 1), key="fn")],
-                     [sg.Text("Last Name   "), sg.InputText('', size=(10, 1), key="ln")],
-                     [sg.Text("Grade       "), sg.InputText('', size=(10, 1), key="gr")],
+                     [sg.Text("First Name  "), sg.InputText('Jerome', size=(10, 1), key="fn")],
+                     [sg.Text("Last Name   "), sg.InputText('Emery', size=(10, 1), key="ln")],
+                     [sg.Text("Grade       "), sg.InputText('12', size=(10, 1), key="gr")],
                      [sg.Button("Add Classes")],
                      [sg.Button("OK"), sg.Button("Quit")]]
 # this layout asks user to click on the class subject they want to add

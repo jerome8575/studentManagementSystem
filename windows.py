@@ -20,4 +20,4 @@ windows = {"StudentInfo": windowStudentInfo,
            "Science": windowScience,
            "Language": windowLanguage,
            "History": windowHistory,
-           "Elective": windowElective}
+           "Electives": windowElective}

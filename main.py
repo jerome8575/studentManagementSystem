@@ -17,23 +17,27 @@ def checkClosedWindow(event):
         return True
 
 # reads the window for selected class subject
-def readSubjectWindow(subjectEvent, studentClass):
+def readSubjectWindow(subjectEvent, studentClasses):
     while True:
         event, values = windows[subjectEvent].read()
-        if event is None:
+        if event is None or event == "Done":
             windows[subjectEvent].close()
             break
+        else:
+            cl = Class(event)
+            studentClasses.append(cl)
 
 def readAddClassesWindow():
     while True:
         event2, values2 = windows["AddClassSubject"].read()
+        print(event2)
         if event2 == sg.WIN_CLOSED or event2 == "Done":
             windows["AddClassSubject"].close()
             break
         elif event2 != None:
             readSubjectWindow(event2, studentClasses)
 
-keys = ["fn", "ln", "gr"]  # Controls the window interactions
+
 studentList = Students()   # Students object, list of all students
 studentClasses = []  # list of student's classes
 

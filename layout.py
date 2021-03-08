@@ -9,12 +9,12 @@ classes = {"Math" : "MAT101",
            "Electives": "ELEC101"}
 
 def createStudentInfoLayout():
-    studentInfo = [[sg.Text("Add a student", font=("Arial", 20, "bold") )],
+    studentInfo = [[sg.Text("Add a student")],
                          [sg.Text("First Name  "), sg.InputText('', size=(10, 1), key="fn")],
                          [sg.Text("Last Name   "), sg.InputText('', size=(10, 1), key="ln")],
                          [sg.Text("Grade       "), sg.InputText('', size=(10, 1), key="gr")],
                          [sg.Button("Add Classes")],
-                         [sg.Button("OK"), sg.Button("Quit")]]
+                         [sg.Button("OK"), sg.Button("Done")]]
     return studentInfo
 
 def createAddClassSubjectsLayout():
@@ -29,3 +29,9 @@ def createSubjectsLayout(subjectName):
                       [sg.Button(classes[subjectName])],
                       [sg.Button("Done")]]
     return layout
+
+def createMainLayout():
+    mainLayout = [[sg.Text("Student Management System", font=("Arial", 20, "bold"))],
+                  [sg.Button("Add student", key="as")],
+                  [sg.Button("Quit")]]
+    return mainLayout

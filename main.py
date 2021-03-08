@@ -3,11 +3,10 @@ import PySimpleGUI as sg
 from Class import Class
 from Student import Student, Students
 
-from windows import createSubjectsWin, createStudentInfoWin, createAddClassSubjectsWin
+from windows import createSubjectsWin, createStudentInfoWin, createAddClassSubjectsWin, createMainWindow
 
 keys = ['fn', 'ln', 'gr']
 studentList = Students()   # Students object, list of all students
-studentClasses = []  # list of student's classes
 
 
 # creates a class object and adds it to a class list
@@ -27,7 +26,7 @@ def readSubjectWindow(subjectEvent, studentClasses):
             cl = Class(event)
             studentClasses.append(cl)
 
-def readAddClassesWindow():
+def readAddClassesWindow(studentClasses):
     window = createAddClassSubjectsWin()
     while True:
         event2, values2 = window.read()
@@ -37,12 +36,13 @@ def readAddClassesWindow():
         elif event2 != None:
             readSubjectWindow(event2, studentClasses)
 
-def main():
+def readStudentInfoWindow():
+    studentClasses = []  # list of student's classes
     window = createStudentInfoWin()
     while True:
         event, values = window.Read()
         if event == "Add Classes":
-            readAddClassesWindow()
+            readAddClassesWindow(studentClasses)
         elif event == "OK":
             # create student object with input from user as fields
             student = Student(values["fn"], values["ln"], int(values["gr"]), studentClasses)
@@ -52,9 +52,19 @@ def main():
             # clear fields
             for k in keys:
                 window[k]("")
-        elif event == sg.WIN_CLOSED or event == "Quit":
+        elif event == sg.WIN_CLOSED or event == "Done":
+            break
+    window.close()
+
+def main():
+    mainWindow = createMainWindow()
+    while True:
+        event, values = mainWindow.read()
+        if event == "as":
+            readStudentInfoWindow()
+        elif event is None or event == "Quit":
+            mainWindow.close()
             break
     studentList.printList()
-    window.close()
 
 main()

@@ -1,5 +1,5 @@
 import PySimpleGUI as sg
-from layout import createStudentInfoLayout, createSubjectsLayout, createAddClassSubjectsLayout
+from layout import createStudentInfoLayout, createSubjectsLayout, createAddClassSubjectsLayout, createMainLayout
 
 
 def createStudentInfoWin():
@@ -8,3 +8,5 @@ def createAddClassSubjectsWin():
     return sg.Window("classes", createAddClassSubjectsLayout(), margins=(30, 30))
 def createSubjectsWin(subjectName):
     return sg.Window(subjectName, createSubjectsLayout(subjectName), margins=(30, 30))
+def createMainWindow():
+    return sg.Window("Student management system", createMainLayout(), margins=(30, 30))

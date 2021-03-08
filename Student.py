@@ -1,6 +1,4 @@
 class Student:
-    """Student class, initialize with first name, last name, id number, gpa
-    function is print student whic prints all the fields"""
 
     firstName = ""
     lastName = ""
@@ -28,8 +26,6 @@ class Student:
 
 
 class Students:
-    """keeps a list of students in alphabetical order by last name
-    functions are printList(), addStudent(Student object)"""
 
     studentsList = []
 

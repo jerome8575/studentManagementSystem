@@ -3,7 +3,7 @@ from layout import createStudentInfoLayout, createSubjectsLayout, createAddClass
 
 
 def createStudentInfoWin():
-    return sg.Window("student", createStudentInfoLayout(), margins=(50, 50))
+    return sg.Window("student", createStudentInfoLayout(), margins=(10, 10))
 def createAddClassSubjectsWin():
     return sg.Window("classes", createAddClassSubjectsLayout(), margins=(30, 30))
 def createSubjectsWin(subjectName):

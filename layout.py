@@ -9,7 +9,7 @@ classes = {"Math" : "MAT101",
            "Electives": "ELEC101"}
 
 def createStudentInfoLayout():
-    studentInfo = [[sg.Text("Add a student")],
+    studentInfo = [[sg.Text("Add a student", font=("Arial", 20, "bold") )],
                          [sg.Text("First Name  "), sg.InputText('', size=(10, 1), key="fn")],
                          [sg.Text("Last Name   "), sg.InputText('', size=(10, 1), key="ln")],
                          [sg.Text("Grade       "), sg.InputText('', size=(10, 1), key="gr")],

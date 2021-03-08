@@ -5,6 +5,10 @@ from Student import Student, Students
 
 from windows import createSubjectsWin, createStudentInfoWin, createAddClassSubjectsWin
 
+keys = ['fn', 'ln', 'gr']
+studentList = Students()   # Students object, list of all students
+studentClasses = []  # list of student's classes
+
 
 # creates a class object and adds it to a class list
 def createClass(classEvent, studentClasses):
@@ -33,24 +37,24 @@ def readAddClassesWindow():
         elif event2 != None:
             readSubjectWindow(event2, studentClasses)
 
-keys = ['fn', 'ln', 'gr']
-studentList = Students()   # Students object, list of all students
-studentClasses = []  # list of student's classes
+def main():
+    window = createStudentInfoWin()
+    while True:
+        event, values = window.Read()
+        if event == "Add Classes":
+            readAddClassesWindow()
+        elif event == "OK":
+            # create student object with input from user as fields
+            student = Student(values["fn"], values["ln"], int(values["gr"]), studentClasses)
+            studentList.addStudent(student)
+            # reset student schedule
+            studentClasses = []
+            # clear fields
+            for k in keys:
+                window[k]("")
+        elif event == sg.WIN_CLOSED or event == "Quit":
+            break
+    studentList.printList()
+    window.close()
 
-window = createStudentInfoWin()
-while True:
-    event, values = window.Read()
-    if event == "Add Classes":
-        readAddClassesWindow()
-    elif event == "OK":
-        # create student object with input from user as fields
-        student = Student(values["fn"], values["ln"], int(values["gr"]), studentClasses)
-        studentList.addStudent(student)
-        studentClasses = []
-        for k in keys:
-            window[k]("")
-    elif event == sg.WIN_CLOSED or event == "Quit":
-        break
-
-studentList.printList()
-window.close()
+main()

@@ -32,6 +32,6 @@ def createSubjectsLayout(subjectName):
 
 def createMainLayout():
     mainLayout = [[sg.Text("Student Management System", font=("Arial", 20, "bold"))],
-                  [sg.Button("Add student", key="as")],
+                  [sg.Button("Add student", key="as", size=(10, 2))],
                   [sg.Button("Quit")]]
     return mainLayout
